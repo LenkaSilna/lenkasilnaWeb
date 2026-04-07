@@ -3,9 +3,11 @@ import globals from 'globals'
 import reactHooks from 'eslint-plugin-react-hooks'
 import reactRefresh from 'eslint-plugin-react-refresh'
 import tseslint from 'typescript-eslint'
+import prettierConfig from 'eslint-config-prettier'
+import prettier from 'eslint-plugin-prettier'
 
 export default tseslint.config(
-	{ignores: ['dist']},
+	{ignores: ['dist', 'node_modules', '.next', '*.cjs', 'next-env.d.ts']},
 	{
 		extends: [
 			js.configs.recommended,

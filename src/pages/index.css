@@ -1,25 +1,70 @@
+/* ─── Design tokens ─────────────────────────────────────────── */
 :root {
-	font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-	line-height: 1.5;
-	font-weight: 400;
+	/* Colors — light */
+	--color-bg: #ffffff;
+	--color-surface: #f7f7f7;
+	--color-text: #1a1a1a;
+	--color-text-muted: #888;
+	--color-accent: #0066cc;
+	--color-accent-hover: #004fa3;
+	--color-border: #e5e5e5;
 
-	color-scheme: light dark;
-	color: rgba(255, 255, 255, 0.87);
-	background-color: #242424;
+	/* Typography */
+	--font-sans: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+	--font-size-base: 1rem;
+	--line-height-base: 1.5;
 
-	font-synthesis: none;
-	text-rendering: optimizeLegibility;
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
+	/* Spacing */
+	--space-xs: 0.25rem;
+	--space-sm: 0.5rem;
+	--space-md: 1rem;
+	--space-lg: 1.5rem;
+	--space-xl: 2rem;
+
+	/* Radius */
+	--radius-sm: 4px;
+	--radius-md: 8px;
+
+	/* Nav */
+	--nav-height: 56px;
+	--nav-shadow: 0 1px 0 var(--color-border);
+
+	/* Transition */
+	--transition-fast: 0.15s ease;
+	--transition-base: 0.25s ease;
+}
+
+[data-theme='dark'] {
+	--color-bg: #1a1a1a;
+	--color-surface: #242424;
+	--color-text: rgba(255, 255, 255, 0.87);
+	--color-text-muted: #666;
+	--color-accent: #4d9fff;
+	--color-accent-hover: #7ab8ff;
+	--color-border: #333;
+}
+
+/* ─── Reset ─────────────────────────────────────────────────── */
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
 }
 
 body {
 	margin: 0;
-	padding: 20px;
-}
-
-nav {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
+	padding: 0;
+	font-family: var(--font-sans);
+	font-size: var(--font-size-base);
+	line-height: var(--line-height-base);
+	font-weight: 400;
+	background-color: var(--color-bg);
+	color: var(--color-text);
+	font-synthesis: none;
+	text-rendering: optimizeLegibility;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	transition:
+		background-color var(--transition-base),
+		color var(--transition-base);
 }

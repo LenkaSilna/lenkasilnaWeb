@@ -1,48 +1,48 @@
 {
-    "home": {
-      "cs": {
-        "title": "Profesionální webový frontend vývojář",
-        "description": "Jsem Lenka, webová frontend vývojářka, která vytváří moderní a responsivní webové stránky. Specializuji se na uživatelsky přívětivé rozhraní a funkční design s využitím moderních technologií.",
-        "keywords": "frontend vývojář, webový vývojář, moderní weby, responsivní design, JavaScript, React",
-        "ogTitle": "Profesionální webový frontend vývojář",
-        "ogDescription": "Jsem Lenka, webová frontend vývojářka, která vytváří moderní a responsivní webové stránky. Specializuji se na uživatelsky přívětivé rozhraní a funkční design.",
-        "ogImage": "/images/default.jpg",
-        "twitterTitle": "Profesionální webový frontend vývojář",
-        "twitterDescription": "Jsem Lenka, webová frontend vývojářka, která vytváří moderní a responsivní webové stránky.",
-        "twitterImage": "/images/default.jpg"
-      },
-      "en": {
-        "title": "Professional Web Front-End Developer",
-        "description": "I’m Lenka, a web front-end developer creating modern and responsive websites. I specialize in user-friendly interfaces and functional design using modern technologies.",
-        "keywords": "front-end developer, web developer, modern websites, responsive design, JavaScript, React",
-        "ogTitle": "Professional Web Front-End Developer",
-        "ogDescription": "I’m Lenka, a web front-end developer creating modern and responsive websites. I specialize in user-friendly interfaces and functional design.",
-        "ogImage": "/images/default.jpg",
-        "twitterTitle": "Professional Web Front-End Developer",
-        "twitterDescription": "I’m Lenka, a web front-end developer creating modern and responsive websites.",
-        "twitterImage": "/images/default.jpg"
-      },
-      "de": {
-        "title": "Professionelle Web-Frontend-Entwicklerin",
-        "description": "Ich bin Lenka, eine Web-Frontend-Entwicklerin, die moderne und responsive Websites erstellt. Ich spezialisiere mich auf benutzerfreundliche Schnittstellen und funktionales Design mit modernen Technologien.",
-        "keywords": "Frontend-Entwickler, Web-Entwickler, moderne Websites, responsives Design, JavaScript, React",
-        "ogTitle": "Professionelle Web-Frontend-Entwicklerin",
-        "ogDescription": "Ich bin Lenka, eine Web-Frontend-Entwicklerin, die moderne und responsive Websites erstellt. Ich spezialisiere mich auf benutzerfreundliche Schnittstellen und funktionales Design.",
-        "ogImage": "/images/default.jpg",
-        "twitterTitle": "Professionelle Web-Frontend-Entwicklerin",
-        "twitterDescription": "Ich bin Lenka, eine Web-Frontend-Entwicklerin, die moderne und responsive Websites erstellt.",
-        "twitterImage": "/images/default.jpg"
-      },
-      "esp": {
-        "title": "Desarrolladora Front-End Web Profesional",
-        "description": "Soy Lenka, desarrolladora front-end web, creando sitios web modernos y responsivos. Me especializo en interfaces fáciles de usar y diseño funcional utilizando tecnologías modernas.",
-        "keywords": "desarrolladora front-end, desarrolladora web, sitios web modernos, diseño responsivo, JavaScript, React",
-        "ogTitle": "Desarrolladora Front-End Web Profesional",
-        "ogDescription": "Soy Lenka, desarrolladora front-end web, creando sitios web modernos y responsivos. Me especializo en interfaces fáciles de usar y diseño funcional.",
-        "ogImage": "/images/default.jpg",
-        "twitterTitle": "Desarrolladora Front-End Web Profesional",
-        "twitterDescription": "Soy Lenka, desarrolladora front-end web, creando sitios web modernos y responsivos.",
-        "twitterImage": "/images/default.jpg"
-      }
-    }
-  }
+	"home": {
+		"cs": {
+			"title": "Lenka Silná",
+			"description": "Frontend vývojářka se zaměřením na přístupné, rychlé a moderní webové aplikace. React, TypeScript, Next.js.",
+			"keywords": "frontend vývojář, React, TypeScript, Next.js, webový vývojář, Lenka Silná",
+			"ogTitle": "Lenka Silná — Frontend vývojářka",
+			"ogDescription": "Frontend vývojářka. React, TypeScript, Next.js.",
+			"ogImage": "/images/default.jpg",
+			"twitterTitle": "Lenka Silná — Frontend vývojářka",
+			"twitterDescription": "Frontend vývojářka. React, TypeScript, Next.js.",
+			"twitterImage": "/images/default.jpg"
+		},
+		"en": {
+			"title": "Lenka Silná",
+			"description": "Frontend developer focused on accessible, fast, and modern web applications. React, TypeScript, Next.js.",
+			"keywords": "frontend developer, React, TypeScript, Next.js, web developer, Lenka Silná",
+			"ogTitle": "Lenka Silná — Frontend Developer",
+			"ogDescription": "Frontend developer. React, TypeScript, Next.js.",
+			"ogImage": "/images/default.jpg",
+			"twitterTitle": "Lenka Silná — Frontend Developer",
+			"twitterDescription": "Frontend developer. React, TypeScript, Next.js.",
+			"twitterImage": "/images/default.jpg"
+		},
+		"de": {
+			"title": "Lenka Silná",
+			"description": "Frontend-Entwicklerin mit Fokus auf zugängliche, schnelle und moderne Webanwendungen. React, TypeScript, Next.js.",
+			"keywords": "Frontend-Entwicklerin, React, TypeScript, Next.js, Web-Entwicklerin, Lenka Silná",
+			"ogTitle": "Lenka Silná — Frontend-Entwicklerin",
+			"ogDescription": "Frontend-Entwicklerin. React, TypeScript, Next.js.",
+			"ogImage": "/images/default.jpg",
+			"twitterTitle": "Lenka Silná — Frontend-Entwicklerin",
+			"twitterDescription": "Frontend-Entwicklerin. React, TypeScript, Next.js.",
+			"twitterImage": "/images/default.jpg"
+		},
+		"esp": {
+			"title": "Lenka Silná",
+			"description": "Desarrolladora frontend especializada en aplicaciones web accesibles, rápidas y modernas. React, TypeScript, Next.js.",
+			"keywords": "desarrolladora frontend, React, TypeScript, Next.js, desarrolladora web, Lenka Silná",
+			"ogTitle": "Lenka Silná — Desarrolladora Frontend",
+			"ogDescription": "Desarrolladora frontend. React, TypeScript, Next.js.",
+			"ogImage": "/images/default.jpg",
+			"twitterTitle": "Lenka Silná — Desarrolladora Frontend",
+			"twitterDescription": "Desarrolladora frontend. React, TypeScript, Next.js.",
+			"twitterImage": "/images/default.jpg"
+		}
+	}
+}

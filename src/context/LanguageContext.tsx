@@ -11,6 +11,7 @@ const LanguageContext = createContext<LanguageContextType | undefined>(
 )
 
 export const LanguageProvider = ({children}: {children: ReactNode}) => {
+	// Start with 'en' to match SSR — localStorage is read after hydration
 	const [lang, setLang] = useState<LocalizationLanguages>(
 		LocalizationLanguages.en
 	)
@@ -19,13 +20,13 @@ export const LanguageProvider = ({children}: {children: ReactNode}) => {
 		const savedLang = localStorage.getItem(
 			'website-language'
 		) as LocalizationLanguages | null
-		if (savedLang) {
-			setLang(savedLang)
-		}
+		// eslint-disable-next-line react-hooks/set-state-in-effect
+		if (savedLang) setLang(savedLang)
 	}, [])
 
 	useEffect(() => {
 		localStorage.setItem('website-language', lang)
+		document.documentElement.lang = lang
 	}, [lang])
 
 	return (

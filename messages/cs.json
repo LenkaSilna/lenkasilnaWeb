@@ -1,0 +1,16 @@
+{
+	"hi": "Ahoj, já jsem Lenka",
+	"about.intro": "Frontend vývojářka se zaměřením na přístupné a rychlé webové aplikace. Pracuji s Reactem, TypeScriptem a Next.js.",
+	"portfolio.soon": "Brzy tady bude více projektů.",
+	"nav.about": "O mně",
+	"nav.portfolio": "Portfolio",
+	"nav.contact": "Kontakt",
+	"contact.name": "Jméno (nepovinné)",
+	"contact.email": "E-mail",
+	"contact.message": "Zpráva",
+	"contact.consent": "Souhlasím se zpracováním svých osobních údajů za účelem zpětného kontaktu.",
+	"contact.submit": "Odeslat zprávu",
+	"contact.sending": "Odesílám…",
+	"contact.success": "Zpráva odeslána. Ozvám se co nejdříve.",
+	"contact.error": "Odeslání se nezdařilo. Zkuste to prosím znovu."
+}

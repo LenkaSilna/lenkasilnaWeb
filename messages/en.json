@@ -1,0 +1,16 @@
+{
+	"hi": "Hi, I am Lenka",
+	"about.intro": "Frontend developer focused on accessible and fast web applications. I work with React, TypeScript, and Next.js.",
+	"portfolio.soon": "More projects coming soon.",
+	"nav.about": "About",
+	"nav.portfolio": "Portfolio",
+	"nav.contact": "Contact",
+	"contact.name": "Name (optional)",
+	"contact.email": "Email",
+	"contact.message": "Message",
+	"contact.consent": "I agree to the processing of my personal data for the purpose of being contacted back.",
+	"contact.submit": "Send message",
+	"contact.sending": "Sending…",
+	"contact.success": "Message sent. I'll get back to you soon.",
+	"contact.error": "Sending failed. Please try again."
+}

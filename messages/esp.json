@@ -1,0 +1,16 @@
+{
+	"hi": "Hola, soy Lenka",
+	"about.intro": "Desarrolladora frontend especializada en aplicaciones web accesibles y rápidas. Trabajo con React, TypeScript y Next.js.",
+	"portfolio.soon": "Más proyectos próximamente.",
+	"nav.about": "Sobre mí",
+	"nav.portfolio": "Portfolio",
+	"nav.contact": "Contacto",
+	"contact.name": "Nombre (opcional)",
+	"contact.email": "Correo electrónico",
+	"contact.message": "Mensaje",
+	"contact.consent": "Acepto el tratamiento de mis datos personales con el fin de recibir respuesta.",
+	"contact.submit": "Enviar mensaje",
+	"contact.sending": "Enviando…",
+	"contact.success": "Mensaje enviado. Me pondré en contacto contigo pronto.",
+	"contact.error": "Error al enviar. Por favor, inténtalo de nuevo."
+}

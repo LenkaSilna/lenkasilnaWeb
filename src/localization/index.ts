@@ -1,36 +1,20 @@
 import {useLanguage} from '../context/LanguageContext'
+import csMessages from '../../messages/cs.json'
+import enMessages from '../../messages/en.json'
+import deMessages from '../../messages/de.json'
+import espMessages from '../../messages/esp.json'
 
-const cs = {
-	'Hi I am Lenka': 'Ahoj, já jsem Lenka',
-} as const
-
-export type LocalisationString = keyof typeof cs
-
-const esp: Record<LocalisationString, string> = {
-	'Hi I am Lenka': 'Hola, soy Lenka',
-} as const
-
-const de: Record<LocalisationString, string> = {
-	'Hi I am Lenka': 'Hallo, ich bin Lenka',
-} as const
-
-const en: Record<LocalisationString, string> = {
-	'Hi I am Lenka': 'Hi, I am Lenka',
-} as const
-
-const strings = {
-	de,
-	cs,
-	en,
-	esp,
+const messages = {
+	cs: csMessages,
+	en: enMessages,
+	de: deMessages,
+	esp: espMessages,
 }
 
 export function useTranslation() {
-	const {lang} = useLanguage() as { lang: keyof typeof strings }
-
+	const {lang} = useLanguage()
 	return {
-		t: (key: LocalisationString): string => {
-			return strings[lang]?.[key] || key
-		},
+		t: (key: string): string =>
+			(messages[lang] as Record<string, string>)[key] ?? key,
 	}
 }
