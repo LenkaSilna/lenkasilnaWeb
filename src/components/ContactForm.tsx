@@ -200,10 +200,7 @@ const ContactForm = () => {
 					{t('contact.success')}
 				</StatusMessage>
 			) : (
-				<SubmitButton
-					type="submit"
-					disabled={status === 'sending'}
-				>
+				<SubmitButton type="submit" disabled={status === 'sending'}>
 					{status === 'sending'
 						? t('contact.sending')
 						: t('contact.submit')}

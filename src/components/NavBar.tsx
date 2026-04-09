@@ -316,7 +316,11 @@ const NavBar: React.FC<NavBarProps> = ({title, links = []}) => {
 	))
 
 	return (
-		<Wrapper ref={wrapperRef} $visible={visible} aria-label="Main navigation">
+		<Wrapper
+			ref={wrapperRef}
+			$visible={visible}
+			aria-label="Main navigation"
+		>
 			<TopRow>
 				{title && <Title>{title}</Title>}
 

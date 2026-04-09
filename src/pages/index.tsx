@@ -256,8 +256,16 @@ const skillGroups = [
 ]
 
 const education = [
-	{school: 'Univerzita Karlova v Praze', fieldKey: 'education.field.arts', degree: 'Bc.'},
-	{school: 'Výtvarná škola Václava Hollara', fieldKey: 'education.field.graphic', degree: 'Maturita'},
+	{
+		school: 'Univerzita Karlova v Praze',
+		fieldKey: 'education.field.arts',
+		degree: 'Bc.',
+	},
+	{
+		school: 'Výtvarná škola Václava Hollara',
+		fieldKey: 'education.field.graphic',
+		degree: 'Maturita',
+	},
 ]
 
 const languageCodes = [
@@ -269,7 +277,9 @@ const languageCodes = [
 const Home = () => {
 	const {t} = useTranslation()
 	const {lang} = useLanguage()
-	const displayNames = new Intl.DisplayNames([LOCALE_MAP[lang] ?? 'en-US'], {type: 'language'})
+	const displayNames = new Intl.DisplayNames([LOCALE_MAP[lang] ?? 'en-US'], {
+		type: 'language',
+	})
 	return (
 		<>
 			<SEO page="home" />
@@ -288,7 +298,9 @@ const Home = () => {
 								<ExpCompany>{company}</ExpCompany>
 								<ExpType>{type}</ExpType>
 								{t(`experience.${key}.desc`) && (
-									<ExpDesc>{t(`experience.${key}.desc`)}</ExpDesc>
+									<ExpDesc>
+										{t(`experience.${key}.desc`)}
+									</ExpDesc>
 								)}
 							</ExpBody>
 						</ExperienceItem>
@@ -303,13 +315,23 @@ const Home = () => {
 							<SkillGroupTitle>{t(titleKey)}</SkillGroupTitle>
 							<SkillList>
 								{items.map((item) => (
-									<li key={item.label} style={{display: 'flex', alignItems: 'center', gap: 'var(--space-sm)'}}>
+									<li
+										key={item.label}
+										style={{
+											display: 'flex',
+											alignItems: 'center',
+											gap: 'var(--space-sm)',
+										}}
+									>
 										<img
 											src={item.icon}
 											alt=""
 											width={16}
 											height={16}
-											style={{objectFit: 'contain', flexShrink: 0}}
+											style={{
+												objectFit: 'contain',
+												flexShrink: 0,
+											}}
 										/>
 										<span>{item.label}</span>
 									</li>
@@ -321,7 +343,14 @@ const Home = () => {
 			</Section>
 			<Section id="podcast">
 				<SectionTitle>{t('nav.podcast')}</SectionTitle>
-				<div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: 'var(--space-md)'}}>
+				<div
+					style={{
+						display: 'grid',
+						gridTemplateColumns:
+							'repeat(auto-fit, minmax(280px, 1fr))',
+						gap: 'var(--space-md)',
+					}}
+				>
 					<iframe
 						style={{borderRadius: '12px'}}
 						src="https://open.spotify.com/embed/episode/6jx2qv04B5CrShN91Alhv5?utm_source=generator"
@@ -348,13 +377,41 @@ const Home = () => {
 					href="https://cz.pycon.org/2023/program/talks/78/"
 					target="_blank"
 					rel="noopener noreferrer"
-					style={{display: 'flex', alignItems: 'center', gap: 'var(--space-md)', textDecoration: 'none', color: 'inherit'}}
+					style={{
+						display: 'flex',
+						alignItems: 'center',
+						gap: 'var(--space-md)',
+						textDecoration: 'none',
+						color: 'inherit',
+					}}
 				>
-					<img src="/icons/pycon.svg" alt="PyCon" width={32} height={32} style={{flexShrink: 0}} />
+					<img
+						src="/icons/pycon.svg"
+						alt="PyCon"
+						width={32}
+						height={32}
+						style={{flexShrink: 0}}
+					/>
 					<div>
-						<div style={{fontWeight: 600}}>{t('speaking.pycon.title')}</div>
-						<div style={{fontSize: '0.875rem', color: 'var(--color-text-muted)'}}>{t('speaking.pycon.event')}</div>
-						<div style={{fontSize: '0.875rem', marginTop: 'var(--space-xs)'}}>{t('speaking.pycon.desc')}</div>
+						<div style={{fontWeight: 600}}>
+							{t('speaking.pycon.title')}
+						</div>
+						<div
+							style={{
+								fontSize: '0.875rem',
+								color: 'var(--color-text-muted)',
+							}}
+						>
+							{t('speaking.pycon.event')}
+						</div>
+						<div
+							style={{
+								fontSize: '0.875rem',
+								marginTop: 'var(--space-xs)',
+							}}
+						>
+							{t('speaking.pycon.desc')}
+						</div>
 					</div>
 				</a>
 			</Section>
