@@ -65,7 +65,6 @@ const Layout: React.FC<LayoutProps> = ({children}) => {
 		{href: '#about', label: t('nav.about')},
 		{href: '#experience', label: t('nav.experience')},
 		{href: '#skills', label: t('nav.skills')},
-		{href: '#podcast', label: t('nav.podcast')},
 		{href: '#contact', label: t('nav.contact')},
 	]
 
