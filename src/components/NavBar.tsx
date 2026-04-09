@@ -12,11 +12,17 @@ export interface NavItem {
 }
 
 /* ─── Styled components ─────────────────────────────────────── */
-const Wrapper = styled.nav`
-	position: relative;
+const Wrapper = styled.nav.withConfig({
+	shouldForwardProp: (prop) => prop !== '$visible',
+})<{$visible: boolean}>`
+	position: sticky;
+	top: 0;
+	z-index: 200;
 	width: 100%;
 	background: var(--color-bg);
 	box-shadow: var(--nav-shadow);
+	transform: translateY(${({$visible}) => ($visible ? '0' : '-100%')});
+	transition: transform var(--transition-base);
 `
 
 const TopRow = styled.div`
@@ -247,12 +253,30 @@ interface NavBarProps {
 
 const NavBar: React.FC<NavBarProps> = ({title, links = []}) => {
 	const [isOpen, setIsOpen] = useState(false)
+	const [visible, setVisible] = useState(true)
+	const lastScrollY = useRef(0)
 	const {lang, setLang} = useLanguage()
 	const {theme, toggleTheme} = useTheme()
 	const wrapperRef = useRef<HTMLElement>(null)
 	const hamburgerRef = useRef<HTMLButtonElement>(null)
 
 	const close = () => setIsOpen(false)
+
+	useEffect(() => {
+		const onScroll = () => {
+			const currentY = window.scrollY
+			if (currentY <= 10) {
+				setVisible(true)
+			} else if (currentY - lastScrollY.current > 4) {
+				setVisible(false)
+			} else if (lastScrollY.current - currentY > 4) {
+				setVisible(true)
+			}
+			lastScrollY.current = currentY
+		}
+		window.addEventListener('scroll', onScroll, {passive: true})
+		return () => window.removeEventListener('scroll', onScroll)
+	}, [])
 
 	useEffect(() => {
 		if (!isOpen) return
@@ -292,7 +316,7 @@ const NavBar: React.FC<NavBarProps> = ({title, links = []}) => {
 	))
 
 	return (
-		<Wrapper ref={wrapperRef} aria-label="Main navigation">
+		<Wrapper ref={wrapperRef} $visible={visible} aria-label="Main navigation">
 			<TopRow>
 				{title && <Title>{title}</Title>}
 

@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 const Badge = styled.div`
 	position: fixed;
-	bottom: 0.75rem;
+	bottom: 3.5rem;
 	right: 0.75rem;
 	font-size: 0.6875rem;
 	color: #888;
@@ -11,7 +11,7 @@ const Badge = styled.div`
 	border-radius: 4px;
 	pointer-events: none;
 	user-select: none;
-	z-index: 100;
+	z-index: 50;
 `
 
 const VersionBadge = () => (

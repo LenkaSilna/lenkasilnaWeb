@@ -26,7 +26,7 @@ const SEO: React.FC<SEOProps> = ({page}) => {
 		description: seo.description,
 		url: 'https://lenkasilna.com',
 		knowsLanguage: ['cs', 'en', 'de', 'es'],
-		sameAs: ['https://github.com/lenkasilna'],
+		sameAs: ['https://github.com/LenkaSilna', 'https://linkedin.com/in/LenkaSilna'],
 	}
 
 	return (
