@@ -1,30 +1,35 @@
-import {useState, useEffect, ReactNode} from 'react'
+import {useState, useEffect, useRef, ReactNode} from 'react'
 import {ThemeContext, Theme} from './theme-context'
 
+const resolveTheme = (): Theme => {
+	if (typeof window === 'undefined') return 'light'
+	const saved = localStorage.getItem('theme') as Theme | null
+	if (saved === 'light' || saved === 'dark') return saved
+	return window.matchMedia('(prefers-color-scheme: dark)').matches
+		? 'dark'
+		: 'light'
+}
+
+const applyTheme = (t: Theme) => {
+	document.documentElement.setAttribute('data-theme', t)
+	localStorage.setItem('theme', t)
+}
+
 export const ThemeProvider = ({children}: {children: ReactNode}) => {
+	const resolved = useRef<Theme>('light')
 	const [theme, setTheme] = useState<Theme>('light')
-	const [mounted, setMounted] = useState(false)
 
 	useEffect(() => {
-		const saved = localStorage.getItem('theme') as Theme | null
-		const preferred = window.matchMedia('(prefers-color-scheme: dark)')
-			.matches
-			? 'dark'
-			: 'light'
-		const resolved = saved ?? preferred
-		setTheme(resolved)
-		document.documentElement.setAttribute('data-theme', resolved)
-		setMounted(true)
+		resolved.current = resolveTheme()
+		applyTheme(resolved.current)
+		setTheme(resolved.current)
 	}, [])
 
-	useEffect(() => {
-		if (!mounted) return
-		document.documentElement.setAttribute('data-theme', theme)
-		localStorage.setItem('theme', theme)
-	}, [theme, mounted])
-
-	const toggleTheme = () =>
-		setTheme((t) => (t === 'light' ? 'dark' : 'light'))
+	const toggleTheme = () => {
+		const next: Theme = theme === 'light' ? 'dark' : 'light'
+		applyTheme(next)
+		setTheme(next)
+	}
 
 	return (
 		<ThemeContext.Provider value={{theme, toggleTheme}}>
