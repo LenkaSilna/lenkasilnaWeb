@@ -1,6 +1,7 @@
+import {useState} from 'react'
 import styled from 'styled-components'
 import {useTranslation} from '../localization'
-import {useLanguage} from '../context/LanguageContext'
+import {useLanguage} from '../context/useLanguage'
 import SEO from '../components/SEO'
 import ContactForm from '../components/ContactForm'
 
@@ -21,22 +22,82 @@ const Section = styled.section`
 `
 
 const Hero = styled(Section)`
-	padding: calc(var(--space-xl) * 2.5) 0;
-
-	h1 {
-		font-size: clamp(2rem, 5vw, 3rem);
-		margin-bottom: var(--space-md);
-	}
-
-	p {
-		color: var(--color-text-muted);
-		font-size: 1.125rem;
-		max-width: 560px;
-	}
+	padding: calc(var(--space-xl) * 2.5) 0 calc(var(--space-xl) * 2);
+	max-width: 680px;
 `
 
 const SectionTitle = styled.h2`
 	margin-bottom: var(--space-lg);
+`
+
+const HeroEyebrow = styled.p`
+	font-size: 0.8125rem;
+	font-weight: 500;
+	letter-spacing: 0.1em;
+	text-transform: uppercase;
+	color: var(--color-accent);
+	margin-bottom: var(--space-md);
+`
+
+const HeroTagline = styled.h1`
+	font-size: clamp(1.75rem, 4vw, 2.5rem);
+	font-weight: 700;
+	line-height: 1.2;
+	color: var(--color-text);
+	margin-bottom: var(--space-lg);
+	letter-spacing: -0.02em;
+	max-width: 560px;
+
+	span {
+		color: var(--color-accent);
+	}
+`
+
+const HeroMeta = styled.p`
+	font-size: 0.9375rem;
+	color: var(--color-text-muted);
+	margin: 0;
+	line-height: 1.6;
+
+	strong {
+		color: var(--color-text);
+		font-weight: 500;
+	}
+`
+
+const HeroActions = styled.div`
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: var(--space-xl);
+	margin-top: var(--space-lg);
+`
+
+const HeroCTA = styled.a`
+	display: inline-block;
+	padding: 0.75rem 1.5rem;
+	background: var(--color-accent);
+	color: #fff;
+	border-radius: var(--radius-sm);
+	font-size: 0.9375rem;
+	font-weight: 500;
+	text-decoration: none;
+	transition: background var(--transition-fast);
+
+	&:hover {
+		background: var(--color-accent-hover);
+	}
+`
+
+const NowLink = styled.a`
+	font-size: 0.9rem;
+	color: var(--color-text-muted);
+	text-decoration: none;
+	transition: color var(--transition-fast);
+
+	&:hover {
+		color: var(--color-accent);
+	}
 `
 
 /* ─── Experience ─────────────────────────────────────────────── */
@@ -77,6 +138,18 @@ const ExpCompany = styled.div`
 	font-size: 0.9rem;
 `
 
+const ExpLink = styled.a`
+	color: var(--color-text-muted);
+	text-decoration: none;
+	font-size: 0.75rem;
+	margin-left: var(--space-xs);
+	opacity: 0.7;
+
+	&:hover {
+		opacity: 1;
+	}
+`
+
 const ExpType = styled.div`
 	font-size: 0.8125rem;
 	color: var(--color-text-muted);
@@ -87,6 +160,22 @@ const ExpDesc = styled.p`
 	font-size: 0.9rem;
 `
 
+const ShowMoreBtn = styled.button`
+	background: none;
+	border: none;
+	padding: 0;
+	margin-top: var(--space-lg);
+	font-size: 0.875rem;
+	color: var(--color-text-muted);
+	cursor: pointer;
+	text-decoration: underline;
+	text-underline-offset: 3px;
+
+	&:hover {
+		color: var(--color-text);
+	}
+`
+
 /* ─── Skills ─────────────────────────────────────────────────── */
 const SkillsGrid = styled.div`
 	display: grid;
@@ -94,13 +183,18 @@ const SkillsGrid = styled.div`
 	gap: var(--space-lg);
 
 	@media (min-width: 640px) {
-		grid-template-columns: repeat(3, 1fr);
+		grid-template-columns: repeat(2, 1fr);
 	}
 `
 
-const SkillGroup = styled.div``
+const SkillCard = styled.div`
+	background: var(--color-surface);
+	border: 1px solid var(--color-border);
+	border-radius: var(--radius-md);
+	padding: var(--space-lg);
+`
 
-const SkillGroupTitle = styled.h3`
+const SkillCardTitle = styled.h3`
 	font-size: 0.875rem;
 	font-weight: 600;
 	text-transform: uppercase;
@@ -114,32 +208,12 @@ const SkillList = styled.ul`
 	padding: 0;
 	margin: 0;
 	display: flex;
-	flex-direction: column;
-	gap: var(--space-xs);
+	flex-wrap: wrap;
+	gap: var(--space-sm);
 	font-size: 0.9rem;
 `
 
 /* ─── Education ──────────────────────────────────────────────── */
-const EduGrid = styled.div`
-	display: grid;
-	grid-template-columns: 1fr;
-	gap: var(--space-xl);
-
-	@media (min-width: 640px) {
-		grid-template-columns: 1fr 1fr;
-	}
-`
-
-const EduBlock = styled.div``
-
-const EduSubtitle = styled.h3`
-	font-size: 0.875rem;
-	font-weight: 600;
-	text-transform: uppercase;
-	letter-spacing: 0.06em;
-	color: var(--color-text-muted);
-	margin-bottom: var(--space-sm);
-`
 
 const EduList = styled.ul`
 	list-style: none;
@@ -151,7 +225,24 @@ const EduList = styled.ul`
 	font-size: 0.9rem;
 `
 
-const EduItem = styled.li``
+const EduItem = styled.li`
+	display: flex;
+	align-items: center;
+	gap: var(--space-md);
+`
+
+const EduLogo = styled.img`
+	width: 40px;
+	height: 40px;
+	object-fit: contain;
+	flex-shrink: 0;
+`
+
+const EduBody = styled.div`
+	display: flex;
+	flex-direction: column;
+	gap: 2px;
+`
 
 const EduSchool = styled.div`
 	font-weight: 600;
@@ -166,14 +257,148 @@ const EduDegree = styled.div`
 	color: var(--color-text-muted);
 `
 
+/* ─── Languages ──────────────────────────────────────────────── */
+const LangList = styled.ul`
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	display: flex;
+	flex-direction: column;
+	gap: var(--space-sm);
+`
+
+const LangItem = styled.li`
+	display: flex;
+	align-items: center;
+	gap: var(--space-sm);
+	font-size: 0.9rem;
+`
+
+const LangName = styled.span``
+
+const LangLevel = styled.span`
+	font-size: 0.75rem;
+	color: var(--color-text-muted);
+	background: var(--color-border);
+	padding: 2px 6px;
+	border-radius: 4px;
+`
+
+/* ─── Courses ────────────────────────────────────────────────── */
+const CourseList = styled.ul`
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	display: flex;
+	flex-direction: column;
+	gap: var(--space-sm);
+`
+
+const CourseItem = styled.li`
+	display: flex;
+	align-items: baseline;
+	gap: var(--space-sm);
+	font-size: 0.9rem;
+`
+
+const CourseYear = styled.span`
+	font-size: 0.8125rem;
+	color: var(--color-text-muted);
+	white-space: nowrap;
+	min-width: 2.5rem;
+`
+
+/* ─── FAQ ────────────────────────────────────────────────────── */
+const FaqList = styled.ul`
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	display: flex;
+	flex-direction: column;
+	gap: var(--space-sm);
+`
+
+const FaqItem = styled.li`
+	border: 1px solid var(--color-border);
+	border-radius: var(--radius-md);
+	overflow: hidden;
+
+	details > summary {
+		padding: var(--space-md) var(--space-lg);
+		cursor: pointer;
+		font-weight: 600;
+		font-size: 0.95rem;
+		list-style: none;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		background: var(--color-surface);
+		transition: background var(--transition-fast);
+
+		&::-webkit-details-marker {
+			display: none;
+		}
+
+		&::after {
+			content: '+';
+			font-size: 1.25rem;
+			font-weight: 400;
+			color: var(--color-text-muted);
+			flex-shrink: 0;
+		}
+	}
+
+	details[open] > summary {
+		border-bottom: 1px solid var(--color-border);
+
+		&::after {
+			content: '−';
+		}
+	}
+`
+
+const FaqAnswer = styled.p`
+	padding: var(--space-md) var(--space-lg);
+	margin: 0;
+	font-size: 0.9rem;
+	color: var(--color-text);
+	line-height: 1.6;
+	background: var(--color-surface);
+
+	a {
+		color: var(--color-accent);
+		text-decoration: none;
+		transition: opacity var(--transition-fast);
+
+		&:visited {
+			color: var(--color-accent);
+		}
+
+		&:hover {
+			opacity: 0.8;
+		}
+	}
+`
+
 /* ─── Data ───────────────────────────────────────────────────── */
-const experiences = [
+type Experience = {
+	key: string
+	period: string
+	company: string
+	role: string
+	type: string
+	url: string | string[] | null
+	hidden?: boolean
+}
+
+const experiences: Experience[] = [
 	{
 		key: 'vocalls',
 		period: '02/2025–dosud',
 		company: 'Vocalls (Callminer)',
 		role: 'QA Engineer',
 		type: 'full-time contractor',
+		url: 'https://callminer.com',
 	},
 	{
 		key: 'faktura',
@@ -181,27 +406,7 @@ const experiences = [
 		company: 'FakturaOnline.cz',
 		role: 'QA Engineer',
 		type: 'part-time contractor',
-	},
-	{
-		key: 'iguana',
-		period: '12/2021–05/2024',
-		company: 'Iguana Technology',
-		role: 'QA Engineer',
-		type: 'full-time/part-time contractor',
-	},
-	{
-		key: 'motionlab',
-		period: '06/2021–07/2022',
-		company: 'Motionlab.io',
-		role: 'Frontend Developer',
-		type: 'full-time contractor',
-	},
-	{
-		key: 'matchhype',
-		period: '05/2023–12/2024',
-		company: 'Matchhype.com',
-		role: 'Frontend Developer',
-		type: 'full-time contractor',
+		url: 'https://www.fakturaonline.cz',
 	},
 	{
 		key: 'alfa',
@@ -209,6 +414,63 @@ const experiences = [
 		company: 'Alfa Industries s.r.o.',
 		role: 'Frontend Developer',
 		type: 'part-time contractor',
+		url: [
+			'https://digientities.web.app',
+			'https://hyperprostor.cz',
+			'https://magic-diary-ai.web.app',
+			'https://ai-content-optimizer.web.app',
+		],
+	},
+	{
+		key: 'matchhype',
+		period: '05/2023–12/2024',
+		company: 'Matchhype.com',
+		role: 'Frontend Developer',
+		type: 'full-time contractor',
+		url: 'https://matchhype.com',
+	},
+	{
+		key: 'iguana',
+		period: '12/2021–05/2024',
+		company: 'Iguana Technology',
+		role: 'QA Engineer',
+		type: 'full-time/part-time contractor',
+		url: ['https://www.campiri.com/cs-cz', 'https://www.dokempu.cz'],
+	},
+	{
+		key: 'motionlab',
+		period: '06/2021–07/2022',
+		company: 'Motionlab.io',
+		role: 'Frontend Developer',
+		type: 'full-time contractor',
+		url: 'https://motionlab.io',
+	},
+	{
+		key: 'czechinvest',
+		period: '06/2007–03/2021',
+		company: 'CzechInvest',
+		role: 'Grafický designér / Webmaster',
+		type: 'full-time',
+		url: 'https://www.czechinvest.org',
+		hidden: true,
+	},
+	{
+		key: 'kasten',
+		period: '2018',
+		company: 'Kasten s.r.o.',
+		role: 'Marketing assistant, copywriter',
+		type: 'part-time',
+		url: null,
+		hidden: true,
+	},
+	{
+		key: 'grada',
+		period: '02/2022–12/2022',
+		company: 'Grada',
+		role: 'Epub creator',
+		type: 'part-time contractor',
+		url: 'https://www.grada.cz',
+		hidden: true,
 	},
 ]
 
@@ -220,11 +482,7 @@ const skillGroups = [
 			{label: 'Cypress', icon: '/icons/cypress.svg'},
 			{label: 'TestCafe', icon: '/icons/testcafe.svg'},
 			{label: 'Cucumber', icon: '/icons/cucumber.svg'},
-			{label: 'Postman', icon: '/icons/postman.svg'},
-			{label: 'Insomnia', icon: '/icons/insomnia.svg'},
 			{label: 'Locust', icon: '/icons/locust.svg'},
-			{label: 'Qase', icon: '/icons/qase.svg'},
-			{label: 'TestRail', icon: '/icons/testrail.svg'},
 			{label: 'SQL', icon: '/icons/sql.svg'},
 		],
 	},
@@ -238,11 +496,20 @@ const skillGroups = [
 			{label: 'Styled Components', icon: '/icons/styledcomponents.svg'},
 			{label: 'SCSS', icon: '/icons/sass.svg'},
 			{label: 'Node.js', icon: '/icons/nodejs.svg'},
-			{label: 'Docker', icon: '/icons/docker.svg'},
+		],
+	},
+	{
+		titleKey: 'skills.devops',
+		items: [
 			{label: 'GitHub', icon: '/icons/github.svg'},
 			{label: 'GitLab', icon: '/icons/gitlab.svg'},
 			{label: 'GitHub Actions', icon: '/icons/githubactions.svg'},
 			{label: 'CircleCI', icon: '/icons/circleci.svg'},
+			{label: 'Docker', icon: '/icons/docker.svg'},
+			{label: 'Postman', icon: '/icons/postman.svg'},
+			{label: 'Insomnia', icon: '/icons/insomnia.svg'},
+			{label: 'Qase', icon: '/icons/qase.svg'},
+			{label: 'TestRail', icon: '/icons/testrail.svg'},
 		],
 	},
 	{
@@ -260,59 +527,118 @@ const education = [
 		school: 'Univerzita Karlova v Praze',
 		fieldKey: 'education.field.arts',
 		degree: 'Bc.',
+		logo: '/icons/Charles-University-symbol-4.svg',
 	},
 	{
 		school: 'Výtvarná škola Václava Hollara',
 		fieldKey: 'education.field.graphic',
 		degree: 'Maturita',
+		logo: '/icons/hollarka.svg',
 	},
 ]
 
 const languageCodes = [
-	{code: 'en', level: 'B2'},
-	{code: 'es', level: 'A2'},
-	{code: 'de', level: 'A1'},
+	{code: 'en', level: 'B2', flag: '🇬🇧'},
+	{code: 'es', level: 'A2', flag: '🇪🇸'},
+	{code: 'de', level: 'A1', flag: '🇩🇪'},
 ]
+
+const courses = [
+	{key: 'devops', year: '2025', url: null},
+	{key: 'webperf', year: '2023', url: null},
+	{key: 'kitner', year: '2021', url: null},
+	{key: 'czechitas-web', year: '2021', url: 'https://jaknafrontend.cz'},
+	{key: 'czechitas-testing', year: '2021', url: null},
+	{key: 'czechitas-auto', year: '2021', url: null},
+	{key: 'czechitas-koderk\u0430', year: '2020', url: null},
+	{key: 'czechitas-data', year: '2021', url: null},
+	{key: 'czechitas-python', year: '2021', url: null},
+	{key: 'google-ux', year: '2021', url: null},
+	{key: 'google-support', year: '2021', url: null},
+	{key: 'rpa', year: '2021', url: null},
+	{key: 'holky', year: '2020', url: null},
+]
+
+const hasHiddenExperiences = experiences.some((e) => e.hidden)
 
 const Home = () => {
 	const {t} = useTranslation()
 	const {lang} = useLanguage()
+	const [showAll, setShowAll] = useState(false)
 	const displayNames = new Intl.DisplayNames([LOCALE_MAP[lang] ?? 'en-US'], {
 		type: 'language',
 	})
+	const visibleExperiences = experiences.filter((e) => showAll || !e.hidden)
 	return (
 		<>
 			<SEO page="home" />
 			<Hero id="about">
-				<h1>{t('hi')}</h1>
-				<p>{t('about.intro')}</p>
+				<HeroEyebrow>{t('hi')}</HeroEyebrow>
+				<HeroTagline>
+					{t('about.tagline.line1')}
+					<br />
+					<span>{t('about.tagline.line2a')}</span>{' '}
+					{t('about.tagline.line2b')}
+				</HeroTagline>
+				<HeroMeta>
+					<strong>{t('about.subtitle')}</strong>
+				</HeroMeta>
+				<HeroActions>
+					<HeroCTA href="/contact">{t('hero.cta')}</HeroCTA>
+					<NowLink href="/now">{t('now.link')}</NowLink>
+				</HeroActions>
 			</Hero>
 			<Section id="experience">
 				<SectionTitle>{t('nav.experience')}</SectionTitle>
 				<ExperienceList>
-					{experiences.map(({key, period, company, role, type}) => (
-						<ExperienceItem key={key}>
-							<ExpPeriod>{period}</ExpPeriod>
-							<ExpBody>
-								<ExpRole>{role}</ExpRole>
-								<ExpCompany>{company}</ExpCompany>
-								<ExpType>{type}</ExpType>
-								{t(`experience.${key}.desc`) && (
-									<ExpDesc>
-										{t(`experience.${key}.desc`)}
-									</ExpDesc>
-								)}
-							</ExpBody>
-						</ExperienceItem>
-					))}
+					{visibleExperiences.map(
+						({key, period, company, role, type, url}) => (
+							<ExperienceItem key={key}>
+								<ExpPeriod>{period}</ExpPeriod>
+								<ExpBody>
+									<ExpRole>{role}</ExpRole>
+									<ExpCompany>
+										{company}
+										{url &&
+											(Array.isArray(url)
+												? url
+												: [url]
+											).map((u, i) => (
+												<ExpLink
+													key={i}
+													href={u}
+													target="_blank"
+													rel="noopener noreferrer"
+												>
+													↗
+												</ExpLink>
+											))}
+									</ExpCompany>
+									<ExpType>{type}</ExpType>
+									{t(`experience.${key}.desc`) && (
+										<ExpDesc>
+											{t(`experience.${key}.desc`)}
+										</ExpDesc>
+									)}
+								</ExpBody>
+							</ExperienceItem>
+						)
+					)}
 				</ExperienceList>
+				{hasHiddenExperiences && (
+					<ShowMoreBtn onClick={() => setShowAll((v) => !v)}>
+						{showAll
+							? t('experience.hide')
+							: t('experience.showAll')}
+					</ShowMoreBtn>
+				)}
 			</Section>
 			<Section id="skills">
 				<SectionTitle>{t('nav.skills')}</SectionTitle>
 				<SkillsGrid>
 					{skillGroups.map(({titleKey, items}) => (
-						<SkillGroup key={titleKey}>
-							<SkillGroupTitle>{t(titleKey)}</SkillGroupTitle>
+						<SkillCard key={titleKey}>
+							<SkillCardTitle>{t(titleKey)}</SkillCardTitle>
 							<SkillList>
 								{items.map((item) => (
 									<li
@@ -326,8 +652,8 @@ const Home = () => {
 										<img
 											src={item.icon}
 											alt=""
-											width={16}
-											height={16}
+											width={18}
+											height={18}
 											style={{
 												objectFit: 'contain',
 												flexShrink: 0,
@@ -337,9 +663,63 @@ const Home = () => {
 									</li>
 								))}
 							</SkillList>
-						</SkillGroup>
+						</SkillCard>
 					))}
 				</SkillsGrid>
+			</Section>
+			<Section id="courses">
+				<SectionTitle>{t('courses.title')}</SectionTitle>
+				<CourseList>
+					{courses.map(({key, year, url}) => (
+						<CourseItem key={key}>
+							<CourseYear>{year}</CourseYear>
+							{url ? (
+								<a
+									href={url}
+									target="_blank"
+									rel="noopener noreferrer"
+									style={{color: 'inherit'}}
+								>
+									{t(`course.${key}`)}
+								</a>
+							) : (
+								<span>{t(`course.${key}`)}</span>
+							)}
+						</CourseItem>
+					))}
+				</CourseList>
+			</Section>
+			<Section id="languages">
+				<SectionTitle>{t('education.languages')}</SectionTitle>
+				<LangList>
+					{languageCodes.map(({code, level, flag}) => (
+						<LangItem key={code}>
+							<span
+								style={{fontSize: '1.25rem'}}
+								aria-hidden="true"
+							>
+								{flag}
+							</span>
+							<LangName>{displayNames.of(code)}</LangName>
+							<LangLevel>{level}</LangLevel>
+						</LangItem>
+					))}
+				</LangList>
+			</Section>
+			<Section id="education">
+				<SectionTitle>{t('nav.education')}</SectionTitle>
+				<EduList>
+					{education.map(({school, fieldKey, degree, logo}) => (
+						<EduItem key={school}>
+							{logo && <EduLogo src={logo} alt={school} />}
+							<EduBody>
+								<EduSchool>{school}</EduSchool>
+								<EduField>{t(fieldKey)}</EduField>
+								<EduDegree>{degree}</EduDegree>
+							</EduBody>
+						</EduItem>
+					))}
+				</EduList>
 			</Section>
 			<Section id="podcast">
 				<SectionTitle>{t('nav.podcast')}</SectionTitle>
@@ -415,8 +795,45 @@ const Home = () => {
 					</div>
 				</a>
 			</Section>
+			<Section id="faq">
+				<SectionTitle>{t('faq.title')}</SectionTitle>
+				<FaqList>
+					{[
+						{q: t('faq.q0'), a: t('faq.a0')},
+						{q: t('faq.q4'), a: t('faq.a4')},
+						{
+							q: t('faq.q1'),
+							a: t('faq.a1'),
+							linkHref: '/#skills',
+							linkLabel: t('faq.a1.link'),
+						},
+						{
+							q: t('faq.q2'),
+							a: t('faq.a2'),
+							linkHref: '/contact',
+							linkLabel: t('faq.a2.link'),
+						},
+						{q: t('faq.q3'), a: t('faq.a3')},
+					].map(({q, a, linkHref, linkLabel}) => (
+						<FaqItem key={q}>
+							<details>
+								<summary>{q}</summary>
+								<FaqAnswer>
+									{a}
+									{linkHref && linkLabel && (
+										<>
+											{' '}
+											<a href={linkHref}>{linkLabel}</a>
+										</>
+									)}
+								</FaqAnswer>
+							</details>
+						</FaqItem>
+					))}
+				</FaqList>
+			</Section>
 			<Section id="contact">
-				<SectionTitle>{t('nav.contact')}</SectionTitle>
+				<SectionTitle>{t('contact.heading')}</SectionTitle>
 				<ContactForm />
 			</Section>
 		</>

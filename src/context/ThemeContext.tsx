@@ -1,33 +1,22 @@
-import {createContext, useState, useEffect, ReactNode, useContext} from 'react'
+import {useState, useLayoutEffect, ReactNode} from 'react'
+import {ThemeContext, Theme} from './theme-context'
 
-type Theme = 'light' | 'dark'
-
-interface ThemeContextType {
-	theme: Theme
-	toggleTheme: () => void
+const getInitialTheme = (): Theme => {
+	if (typeof window === 'undefined') return 'light'
+	const saved = localStorage.getItem('theme') as Theme | null
+	if (saved) return saved
+	return window.matchMedia('(prefers-color-scheme: dark)').matches
+		? 'dark'
+		: 'light'
 }
 
-const ThemeContext = createContext<ThemeContextType | undefined>(undefined)
-
 export const ThemeProvider = ({children}: {children: ReactNode}) => {
-	const [theme, setTheme] = useState<Theme>('light')
-	const [mounted, setMounted] = useState(false)
+	const [theme, setTheme] = useState<Theme>(getInitialTheme)
 
-	useEffect(() => {
-		const saved = localStorage.getItem('theme') as Theme | null
-		const preferred = window.matchMedia('(prefers-color-scheme: dark)')
-			.matches
-			? 'dark'
-			: 'light'
-		setTheme(saved ?? preferred)
-		setMounted(true)
-	}, [])
-
-	useEffect(() => {
-		if (!mounted) return
+	useLayoutEffect(() => {
 		document.documentElement.setAttribute('data-theme', theme)
 		localStorage.setItem('theme', theme)
-	}, [theme, mounted])
+	}, [theme])
 
 	const toggleTheme = () =>
 		setTheme((t) => (t === 'light' ? 'dark' : 'light'))
@@ -37,10 +26,4 @@ export const ThemeProvider = ({children}: {children: ReactNode}) => {
 			{children}
 		</ThemeContext.Provider>
 	)
-}
-
-export const useTheme = () => {
-	const ctx = useContext(ThemeContext)
-	if (!ctx) throw new Error('useTheme must be used within ThemeProvider')
-	return ctx
 }

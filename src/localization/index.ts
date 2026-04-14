@@ -1,4 +1,4 @@
-import {useLanguage} from '../context/LanguageContext'
+import {useLanguage} from '../context/useLanguage'
 import csMessages from '../../messages/cs.json'
 import enMessages from '../../messages/en.json'
 import deMessages from '../../messages/de.json'

@@ -1,8 +1,8 @@
 import React, {useState, useEffect, useRef} from 'react'
 import Link from 'next/link'
 import styled from 'styled-components'
-import {useLanguage} from '../context/LanguageContext'
-import {useTheme} from '../context/ThemeContext'
+import {useLanguage} from '../context/useLanguage'
+import {useTheme} from '../context/useTheme'
 import {LocalizationLanguages} from '../types/enums'
 
 /* ─── Types ─────────────────────────────────────────────────── */

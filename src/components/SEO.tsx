@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import {useLanguage} from '../context/LanguageContext'
+import {useLanguage} from '../context/useLanguage'
 import {LocalizationLanguages} from '../types/enums'
 import seoData from '../data/seo.json'
 
@@ -21,11 +21,21 @@ const SEO: React.FC<SEOProps> = ({page}) => {
 	const jsonLd = {
 		'@context': 'https://schema.org',
 		'@type': 'Person',
-		name: 'Lenka Silná',
-		jobTitle: seo.title,
+		name: 'Lenka Šilná',
+		jobTitle: 'QA Engineer & Frontend Developer',
 		description: seo.description,
-		url: 'https://lenkasilna.com',
+		url: 'https://lenkasilna.cz',
 		knowsLanguage: ['cs', 'en', 'de', 'es'],
+		knowsAbout: [
+			'QA testing',
+			'test automation',
+			'Playwright',
+			'Cypress',
+			'React',
+			'Next.js',
+			'LLM testing',
+			'AI testing',
+		],
 		sameAs: [
 			'https://github.com/LenkaSilna',
 			'https://linkedin.com/in/LenkaSilna',
@@ -58,19 +68,15 @@ const SEO: React.FC<SEOProps> = ({page}) => {
 			<meta name="twitter:description" content={seo.twitterDescription} />
 			<meta name="twitter:image" content={seo.twitterImage} />
 
-			{/* hreflang for language variants */}
-			{(Object.keys(HREFLANG_MAP) as LocalizationLanguages[]).map((l) => (
-				<link
-					key={l}
-					rel="alternate"
-					hrefLang={HREFLANG_MAP[l]}
-					href={`https://lenkasilna.com`}
-				/>
-			))}
+			{/* hreflang — canonical URL pro všechny jazykové varianty */}
+			<link rel="alternate" hrefLang="cs" href="https://lenkasilna.cz" />
+			<link rel="alternate" hrefLang="en" href="https://lenkasilna.cz" />
+			<link rel="alternate" hrefLang="de" href="https://lenkasilna.cz" />
+			<link rel="alternate" hrefLang="es" href="https://lenkasilna.cz" />
 			<link
 				rel="alternate"
 				hrefLang="x-default"
-				href="https://lenkasilna.com"
+				href="https://lenkasilna.cz"
 			/>
 
 			{/* JSON-LD structured data */}

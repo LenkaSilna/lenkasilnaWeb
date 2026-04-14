@@ -1,14 +1,6 @@
-import {createContext, useState, useEffect, ReactNode, useContext} from 'react'
+import {useState, useEffect, ReactNode} from 'react'
 import {LocalizationLanguages} from '../types/enums'
-
-interface LanguageContextType {
-	lang: LocalizationLanguages
-	setLang: (lang: LocalizationLanguages) => void
-}
-
-const LanguageContext = createContext<LanguageContextType | undefined>(
-	undefined
-)
+import {LanguageContext} from './language-context'
 
 export const LanguageProvider = ({children}: {children: ReactNode}) => {
 	// Start with 'en' to match SSR — localStorage is read after hydration
@@ -34,12 +26,4 @@ export const LanguageProvider = ({children}: {children: ReactNode}) => {
 			{children}
 		</LanguageContext.Provider>
 	)
-}
-
-export const useLanguage = () => {
-	const context = useContext(LanguageContext)
-	if (!context) {
-		throw new Error('useLanguage must be used within a LanguageProvider')
-	}
-	return context
 }

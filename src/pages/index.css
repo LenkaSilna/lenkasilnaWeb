@@ -4,7 +4,7 @@
 	--color-bg: #ffffff;
 	--color-surface: #f7f7f7;
 	--color-text: #1a1a1a;
-	--color-text-muted: #888;
+	--color-text-muted: #6b6b6b;
 	--color-accent: #0066cc;
 	--color-accent-hover: #004fa3;
 	--color-border: #e5e5e5;
@@ -38,10 +38,16 @@
 	--color-bg: #1a1a1a;
 	--color-surface: #242424;
 	--color-text: rgba(255, 255, 255, 0.87);
-	--color-text-muted: #666;
+	--color-text-muted: #a0a0a0;
 	--color-accent: #4d9fff;
 	--color-accent-hover: #7ab8ff;
 	--color-border: #333;
+}
+
+/* ─── Selection ─────────────────────────────────────────────── */
+::selection {
+	background-color: var(--color-accent);
+	color: #ffffff;
 }
 
 /* ─── Reset ─────────────────────────────────────────────────── */

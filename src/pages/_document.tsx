@@ -49,6 +49,11 @@ class MyDocument extends Document {
 						content="width=device-width, initial-scale=1.0"
 					/>
 					<meta name="theme-color" content="#242424" />
+					<script
+						defer
+						src="https://cloud.umami.is/script.js"
+						data-website-id="a179e40d-9c25-41bc-87b2-32755a09275a"
+					/>
 				</Head>
 				<body>
 					<Main />

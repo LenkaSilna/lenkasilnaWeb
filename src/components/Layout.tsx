@@ -62,10 +62,10 @@ const Layout: React.FC<LayoutProps> = ({children}) => {
 	const {t} = useTranslation()
 
 	const navLinks = [
-		{href: '#about', label: t('nav.about')},
-		{href: '#experience', label: t('nav.experience')},
-		{href: '#skills', label: t('nav.skills')},
-		{href: '#contact', label: t('nav.contact')},
+		{href: '/#about', label: t('nav.about')},
+		{href: '/#experience', label: t('nav.experience')},
+		{href: '/#skills', label: t('nav.skills')},
+		{href: '/#contact', label: t('nav.contact')},
 	]
 
 	return (
