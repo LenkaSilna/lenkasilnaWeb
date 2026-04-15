@@ -40,7 +40,7 @@ class MyDocument extends Document {
 				<Head>
 					<link
 						rel="icon"
-						href="/images/vite.svg"
+						href="/images/favicon.svg"
 						type="image/svg+xml"
 					/>
 					<link rel="shortcut icon" href="/images/vite.ico" />

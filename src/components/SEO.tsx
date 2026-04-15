@@ -21,8 +21,9 @@ const SEO: React.FC<SEOProps> = ({page}) => {
 	const jsonLd = {
 		'@context': 'https://schema.org',
 		'@type': 'Person',
-		name: 'Lenka Šilná',
-		jobTitle: 'QA Engineer & Frontend Developer',
+		name: 'Lenka Silná',
+		jobTitle:
+			'QA Engineer focused on technical quality, UX, and AI testing',
 		description: seo.description,
 		url: 'https://lenkasilna.cz',
 		knowsLanguage: ['cs', 'en', 'de', 'es'],

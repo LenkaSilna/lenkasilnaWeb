@@ -1,9 +1,14 @@
 import Head from 'next/head'
 import Link from 'next/link'
 import styled from 'styled-components'
+import BridgeBanner from '../components/BridgeBanner'
 import {useTranslation} from '../localization'
 
 const Wrapper = styled.div`
+	width: 100%;
+`
+
+const Intro = styled.div`
 	max-width: 640px;
 `
 
@@ -42,12 +47,8 @@ const NowSection = styled.section`
 	}
 `
 
-const NowHighlight = styled.section`
+const NowHighlight = styled(BridgeBanner)`
 	margin-top: var(--space-xl);
-	padding: var(--space-xl);
-	border: 1px solid var(--color-accent);
-	border-radius: var(--radius-md);
-	background: color-mix(in srgb, var(--color-accent) 6%, transparent);
 `
 
 const NowHeading = styled.h2`
@@ -59,33 +60,9 @@ const NowHeading = styled.h2`
 	margin-bottom: var(--space-sm);
 `
 
-const NowHighlightHeading = styled.h2`
-	font-size: 1.125rem;
-	font-weight: 600;
-	color: var(--color-text);
-	margin-bottom: var(--space-sm);
-`
-
 const NowDesc = styled.p`
 	font-size: 0.95rem;
 	line-height: 1.7;
-`
-
-const NowCta = styled.a`
-	display: inline-block;
-	margin-top: var(--space-lg);
-	padding: 0.75rem 1.5rem;
-	background: var(--color-accent);
-	color: #fff;
-	border-radius: var(--radius-sm);
-	font-size: 0.9375rem;
-	font-weight: 500;
-	text-decoration: none;
-	transition: background var(--transition-fast);
-
-	&:hover {
-		background: var(--color-accent-hover);
-	}
 `
 
 const Now = () => {
@@ -99,26 +76,32 @@ const Now = () => {
 				<meta name="robots" content="index, follow" />
 			</Head>
 			<Wrapper>
-				<BackLink>
-					<Link href="/">← lenkasilna.cz</Link>
-				</BackLink>
-				<Title>{t('now.title')}</Title>
-				<Updated>{t('now.updated')}</Updated>
-				<NowSection>
-					<NowHeading>{t('now.learning')}</NowHeading>
-					<NowDesc>{t('now.learning.desc')}</NowDesc>
-				</NowSection>
-				<NowSection>
-					<NowHeading>{t('now.reading')}</NowHeading>
-					<NowDesc>{t('now.reading.desc')}</NowDesc>
-				</NowSection>
-				<NowHighlight>
-					<NowHighlightHeading>
-						{t('now.available')}
-					</NowHighlightHeading>
-					<NowDesc>{t('now.available.desc')}</NowDesc>
-					<NowCta href="/contact">{t('nav.contact')} →</NowCta>
-				</NowHighlight>
+				<Intro>
+					<BackLink>
+						<Link href="/">← lenkasilna.cz</Link>
+					</BackLink>
+					<Title>{t('now.title')}</Title>
+					<Updated>{t('now.updated')}</Updated>
+					<NowSection>
+						<NowHeading>{t('now.work')}</NowHeading>
+						<NowDesc>{t('now.work.desc')}</NowDesc>
+					</NowSection>
+					<NowSection>
+						<NowHeading>{t('now.learning')}</NowHeading>
+						<NowDesc>{t('now.learning.desc')}</NowDesc>
+					</NowSection>
+					<NowSection>
+						<NowHeading>{t('now.reading')}</NowHeading>
+						<NowDesc>{t('now.reading.desc')}</NowDesc>
+					</NowSection>
+				</Intro>
+				<NowHighlight
+					eyebrow={t('bridge.eyebrow')}
+					title={t('now.available')}
+					text={t('now.available.desc')}
+					ctaLabel={t('bridge.cta')}
+					href="https://sw-tester.cz"
+				/>
 			</Wrapper>
 		</>
 	)

@@ -80,6 +80,29 @@ const Layout: React.FC<LayoutProps> = ({children}) => {
 				</span>
 				<FooterLinks>
 					<FooterLink
+						href="https://sw-tester.cz"
+						target="_blank"
+						rel="noopener noreferrer"
+					>
+						<svg
+							width="16"
+							height="16"
+							viewBox="0 0 24 24"
+							fill="none"
+							stroke="currentColor"
+							strokeWidth="2"
+							strokeLinecap="round"
+							strokeLinejoin="round"
+							aria-hidden="true"
+						>
+							<path d="M4 7h16" />
+							<path d="M4 12h10" />
+							<path d="M4 17h7" />
+							<circle cx="18" cy="17" r="3" />
+						</svg>
+						sw-tester.cz
+					</FooterLink>
+					<FooterLink
 						href="https://www.linkedin.com/in/lenka-silna/"
 						target="_blank"
 						rel="noopener noreferrer"

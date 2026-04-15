@@ -1,48 +1,48 @@
 {
 	"home": {
 		"cs": {
-			"title": "Lenka Silná — QA Engineer",
-			"description": "QA Engineer s pětiletou praxí v automatizaci testů. Playwright, Cypress, testování AI a LLM komponent. Zázemí ve frontend vývoji a UX designu.",
+			"title": "Lenka Silná | QA Engineer propojující technickou kvalitu, UX a AI testing",
+			"description": "Osobní web Lenky Silné. QA Engineer, která propojuje technickou kvalitu, UX a AI testing. Zkušenosti s automatizací testů, frontendem a kvalitou produktu.",
 			"keywords": "QA engineer, automatizace testů, Playwright, Cypress, testování softwaru, LLM testování, frontend developer, Lenka Silná",
-			"ogTitle": "Lenka Silná — QA Engineer",
-			"ogDescription": "QA Engineer specializovaná na automatizaci testů, Playwright, Cypress a testování AI komponent.",
-			"ogImage": "/images/default.jpg",
-			"twitterTitle": "Lenka Silná — QA Engineer",
-			"twitterDescription": "QA Engineer specializovaná na automatizaci testů, Playwright, Cypress a testování AI komponent.",
-			"twitterImage": "/images/default.jpg"
+			"ogTitle": "Lenka Silná | QA Engineer propojující technickou kvalitu, UX a AI testing",
+			"ogDescription": "Osobní web Lenky Silné zaměřený na technickou kvalitu, UX, AI testing a automatizaci testů.",
+			"ogImage": "/images/og-home-cs.jpg",
+			"twitterTitle": "Lenka Silná | QA Engineer propojující technickou kvalitu, UX a AI testing",
+			"twitterDescription": "Osobní web Lenky Silné zaměřený na technickou kvalitu, UX, AI testing a automatizaci testů.",
+			"twitterImage": "/images/og-home-cs.jpg"
 		},
 		"en": {
-			"title": "Lenka Silná — QA Engineer",
-			"description": "QA Engineer with five years of experience in test automation. Playwright, Cypress, AI and LLM component testing. Background in frontend development and UX design.",
+			"title": "Lenka Silná | QA Engineer connecting technical quality, UX, and AI testing",
+			"description": "Personal website of Lenka Silná. QA Engineer connecting technical quality, UX, and AI testing, with experience in test automation, frontend development, and product quality.",
 			"keywords": "QA engineer, test automation, Playwright, Cypress, software testing, LLM testing, frontend developer, Lenka Silná",
-			"ogTitle": "Lenka Silná — QA Engineer",
-			"ogDescription": "QA Engineer specialising in test automation, Playwright, Cypress and AI component testing.",
-			"ogImage": "/images/default.jpg",
-			"twitterTitle": "Lenka Silná — QA Engineer",
-			"twitterDescription": "QA Engineer specialising in test automation, Playwright, Cypress and AI component testing.",
-			"twitterImage": "/images/default.jpg"
+			"ogTitle": "Lenka Silná | QA Engineer connecting technical quality, UX, and AI testing",
+			"ogDescription": "Personal website of Lenka Silná focused on technical quality, UX, AI testing, and test automation.",
+			"ogImage": "/images/og-home-en.jpg",
+			"twitterTitle": "Lenka Silná | QA Engineer connecting technical quality, UX, and AI testing",
+			"twitterDescription": "Personal website of Lenka Silná focused on technical quality, UX, AI testing, and test automation.",
+			"twitterImage": "/images/og-home-en.jpg"
 		},
 		"de": {
-			"title": "Lenka Silná — QA-Ingenieurin",
-			"description": "QA-Ingenieurin mit fünf Jahren Erfahrung in der Testautomatisierung. Playwright, Cypress, Testen von KI- und LLM-Komponenten. Hintergrund in Frontend-Entwicklung und UX-Design.",
+			"title": "Lenka Silná | QA-Ingenieurin für technische Qualität, UX und AI-Testing",
+			"description": "Persönliche Website von Lenka Silná. QA-Ingenieurin, die technische Qualität, UX und AI-Testing verbindet, mit Erfahrung in Testautomatisierung, Frontend-Entwicklung und Produktqualität.",
 			"keywords": "QA-Ingenieurin, Testautomatisierung, Playwright, Cypress, Softwaretesting, LLM-Testing, Frontend-Entwicklerin, Lenka Silná",
-			"ogTitle": "Lenka Silná — QA-Ingenieurin",
-			"ogDescription": "QA-Ingenieurin spezialisiert auf Testautomatisierung, Playwright, Cypress und KI-Komponenten-Testing.",
-			"ogImage": "/images/default.jpg",
-			"twitterTitle": "Lenka Silná — QA-Ingenieurin",
-			"twitterDescription": "QA-Ingenieurin spezialisiert auf Testautomatisierung, Playwright, Cypress und KI-Komponenten-Testing.",
-			"twitterImage": "/images/default.jpg"
+			"ogTitle": "Lenka Silná | QA-Ingenieurin für technische Qualität, UX und AI-Testing",
+			"ogDescription": "Persönliche Website von Lenka Silná mit Fokus auf technische Qualität, UX, AI-Testing und Testautomatisierung.",
+			"ogImage": "/images/og-home-de.jpg",
+			"twitterTitle": "Lenka Silná | QA-Ingenieurin für technische Qualität, UX und AI-Testing",
+			"twitterDescription": "Persönliche Website von Lenka Silná mit Fokus auf technische Qualität, UX, AI-Testing und Testautomatisierung.",
+			"twitterImage": "/images/og-home-de.jpg"
 		},
 		"esp": {
-			"title": "Lenka Silná — QA Engineer",
-			"description": "QA Engineer con cinco años de experiencia en automatización de pruebas. Playwright, Cypress, testing de componentes de IA y LLM. Formación en desarrollo frontend y diseño UX.",
+			"title": "Lenka Silná | QA Engineer que conecta calidad técnica, UX y AI testing",
+			"description": "Sitio personal de Lenka Silná. QA Engineer que conecta calidad técnica, UX y AI testing, con experiencia en automatización de pruebas, desarrollo frontend y calidad de producto.",
 			"keywords": "QA engineer, automatización de pruebas, Playwright, Cypress, testing de software, LLM testing, desarrolladora frontend, Lenka Silná",
-			"ogTitle": "Lenka Silná — QA Engineer",
-			"ogDescription": "QA Engineer especializada en automatización de pruebas, Playwright, Cypress y testing de componentes de IA.",
-			"ogImage": "/images/default.jpg",
-			"twitterTitle": "Lenka Silná — QA Engineer",
-			"twitterDescription": "QA Engineer especializada en automatización de pruebas, Playwright, Cypress y testing de componentes de IA.",
-			"twitterImage": "/images/default.jpg"
+			"ogTitle": "Lenka Silná | QA Engineer que conecta calidad técnica, UX y AI testing",
+			"ogDescription": "Sitio personal de Lenka Silná centrado en calidad técnica, UX, AI testing y automatización de pruebas.",
+			"ogImage": "/images/og-home-esp.jpg",
+			"twitterTitle": "Lenka Silná | QA Engineer que conecta calidad técnica, UX y AI testing",
+			"twitterDescription": "Sitio personal de Lenka Silná centrado en calidad técnica, UX, AI testing y automatización de pruebas.",
+			"twitterImage": "/images/og-home-esp.jpg"
 		}
 	}
 }
