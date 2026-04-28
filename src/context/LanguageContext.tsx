@@ -1,23 +1,67 @@
-import {useState, useEffect, ReactNode} from 'react'
+import {useEffect, useRef, ReactNode} from 'react'
+import {useRouter} from 'next/router'
 import {LocalizationLanguages} from '../types/enums'
 import {LanguageContext} from './language-context'
 
+const STORAGE_KEY = 'website-language'
+const DEFAULT_LOCALE = LocalizationLanguages.en
+
+const COUNTRY_TO_LOCALE: Record<string, LocalizationLanguages> = {
+	CZ: LocalizationLanguages.cs,
+	SK: LocalizationLanguages.cs,
+	DE: LocalizationLanguages.de,
+	AT: LocalizationLanguages.de,
+	CH: LocalizationLanguages.de,
+	ES: LocalizationLanguages.es,
+	MX: LocalizationLanguages.es,
+	AR: LocalizationLanguages.es,
+	CO: LocalizationLanguages.es,
+	CL: LocalizationLanguages.es,
+	PE: LocalizationLanguages.es,
+}
+
 export const LanguageProvider = ({children}: {children: ReactNode}) => {
-	// Start with 'en' to match SSR — localStorage is read after hydration
-	const [lang, setLang] = useState<LocalizationLanguages>(
-		LocalizationLanguages.en
-	)
+	const router = useRouter()
+	const redirectDone = useRef(false)
+
+	const lang = (router.locale as LocalizationLanguages) ?? DEFAULT_LOCALE
+
+	const setLang = (newLang: LocalizationLanguages) => {
+		router.push(router.asPath, router.asPath, {locale: newLang})
+	}
 
 	useEffect(() => {
-		const savedLang = localStorage.getItem(
-			'website-language'
-		) as LocalizationLanguages | null
-		// eslint-disable-next-line react-hooks/set-state-in-effect
-		if (savedLang) setLang(savedLang)
-	}, [])
+		if (!router.isReady || redirectDone.current) return
+
+		if (router.locale !== DEFAULT_LOCALE) {
+			// Non-default locale in URL → save as preference
+			localStorage.setItem(STORAGE_KEY, router.locale!)
+			redirectDone.current = true
+			return
+		}
+
+		// On default locale: check saved preference first
+		const saved = localStorage.getItem(STORAGE_KEY) as LocalizationLanguages | null
+		if (saved && saved !== DEFAULT_LOCALE) {
+			redirectDone.current = true
+			router.replace(router.asPath, router.asPath, {locale: saved})
+			return
+		}
+
+		// No saved preference: try IP-based detection
+		redirectDone.current = true
+		fetch('https://ipapi.co/json/')
+			.then(r => r.json())
+			.then((data: {country_code?: string}) => {
+				const detected = COUNTRY_TO_LOCALE[data.country_code ?? '']
+				if (detected && detected !== DEFAULT_LOCALE) {
+					router.replace(router.asPath, router.asPath, {locale: detected})
+				}
+			})
+			.catch(() => {/* stay on default locale */})
+	}, [router.isReady, router.locale]) // eslint-disable-line react-hooks/exhaustive-deps
 
 	useEffect(() => {
-		localStorage.setItem('website-language', lang)
 		document.documentElement.lang = lang
 	}, [lang])
 

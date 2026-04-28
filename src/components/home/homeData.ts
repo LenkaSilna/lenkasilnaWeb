@@ -9,7 +9,7 @@ export const LOCALE_MAP: Record<string, string> = {
 	cs: 'cs-CZ',
 	en: 'en-US',
 	de: 'de-DE',
-	esp: 'es-ES',
+	es: 'es-ES',
 }
 
 export const experiences: Experience[] = [

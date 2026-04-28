@@ -11,7 +11,7 @@ const HREFLANG_MAP: Record<LocalizationLanguages, string> = {
 	cs: 'cs',
 	en: 'en',
 	de: 'de',
-	esp: 'es',
+	es: 'es',
 }
 
 const SEO: React.FC<SEOProps> = ({page}) => {

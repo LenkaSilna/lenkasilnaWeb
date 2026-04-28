@@ -18,6 +18,7 @@ const Wrapper = styled.nav.withConfig({
 	position: sticky;
 	top: 0;
 	z-index: 200;
+	isolation: isolate;
 	width: 100%;
 	background: var(--color-bg);
 	box-shadow: var(--nav-shadow);
@@ -177,13 +178,20 @@ const Line = styled.span.withConfig({
 		'transform: translateY(-7px) rotate(-45deg);'}
 `
 
-/* Mobile panel — grid trick for smooth expand */
+/* Mobile panel — absolute so it overlays content instead of pushing it */
 const MobilePanel = styled.div.withConfig({
 	shouldForwardProp: (prop) => prop !== '$isOpen',
 })<{$isOpen: boolean}>`
 	display: grid;
 	grid-template-rows: ${({$isOpen}) => ($isOpen ? '1fr' : '0fr')};
 	transition: grid-template-rows var(--transition-base);
+	position: absolute;
+	top: 100%;
+	left: 0;
+	width: 100%;
+	background: var(--color-bg);
+	box-shadow: var(--nav-shadow);
+	z-index: 199;
 
 	@media (min-width: 768px) {
 		display: none;
@@ -242,7 +250,7 @@ const LANGS: {code: LocalizationLanguages; label: string; fullName: string}[] =
 		{code: LocalizationLanguages.cs, label: 'CZ', fullName: 'Čeština'},
 		{code: LocalizationLanguages.en, label: 'EN', fullName: 'English'},
 		{code: LocalizationLanguages.de, label: 'DE', fullName: 'Deutsch'},
-		{code: LocalizationLanguages.esp, label: 'ES', fullName: 'Español'},
+		{code: LocalizationLanguages.es, label: 'ES', fullName: 'Español'},
 	]
 
 /* ─── Component ─────────────────────────────────────────────── */
@@ -264,6 +272,7 @@ const NavBar: React.FC<NavBarProps> = ({title, links = []}) => {
 
 	useEffect(() => {
 		const onScroll = () => {
+			if (window.innerWidth < 768) return
 			const currentY = window.scrollY
 			if (currentY <= 10) {
 				setVisible(true)
@@ -309,7 +318,7 @@ const NavBar: React.FC<NavBarProps> = ({title, links = []}) => {
 			}}
 			aria-pressed={lang === code}
 			aria-label={fullName}
-			lang={code === LocalizationLanguages.esp ? 'es' : code}
+			lang={code}
 		>
 			{label}
 		</LangBtn>
@@ -318,7 +327,7 @@ const NavBar: React.FC<NavBarProps> = ({title, links = []}) => {
 	return (
 		<Wrapper
 			ref={wrapperRef}
-			$visible={visible}
+			$visible={visible || isOpen}
 			aria-label="Main navigation"
 		>
 			<TopRow>

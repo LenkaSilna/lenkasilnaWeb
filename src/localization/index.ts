@@ -2,13 +2,13 @@ import {useLanguage} from '../context/useLanguage'
 import csMessages from '../../messages/cs.json'
 import enMessages from '../../messages/en.json'
 import deMessages from '../../messages/de.json'
-import espMessages from '../../messages/esp.json'
+import esMessages from '../../messages/es.json'
 
 const messages = {
 	cs: csMessages,
 	en: enMessages,
 	de: deMessages,
-	esp: espMessages,
+	es: esMessages,
 }
 
 export function useTranslation() {

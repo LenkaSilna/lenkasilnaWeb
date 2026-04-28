@@ -79,7 +79,6 @@ const HomePageContent = () => {
 	)
 	const faqItems = [
 		{q: t('faq.q0'), a: t('faq.a0')},
-		{q: t('faq.q4'), a: t('faq.a4')},
 		{
 			q: t('faq.q1'),
 			a: t('faq.a1'),
@@ -92,7 +91,6 @@ const HomePageContent = () => {
 			linkHref: '/contact',
 			linkLabel: t('faq.a2.link'),
 		},
-		{q: t('faq.q3'), a: t('faq.a3')},
 	]
 
 	return (
@@ -113,17 +111,6 @@ const HomePageContent = () => {
 					<NowLink href="/now">{t('now.link')}</NowLink>
 				</HeroActions>
 			</Hero>
-
-			<BridgeBannerSection aria-labelledby="services-bridge-title">
-				<BridgeBanner
-					id="services-bridge-title"
-					eyebrow={t('bridge.eyebrow')}
-					title={t('bridge.title')}
-					text={t('bridge.text')}
-					ctaLabel={t('bridge.cta')}
-					href="https://sw-tester.cz"
-				/>
-			</BridgeBannerSection>
 
 			<Section id="experience">
 				<SectionTitle>{t('nav.experience')}</SectionTitle>
@@ -179,7 +166,10 @@ const HomePageContent = () => {
 							<SkillList>
 								{items.map((item) => (
 									<SkillItem key={item.label}>
-										<SkillIcon src={item.icon} alt="" />
+										<SkillIcon
+											src={item.icon}
+											alt={item.label}
+										/>
 										<span>{item.label}</span>
 									</SkillItem>
 								))}
@@ -239,6 +229,17 @@ const HomePageContent = () => {
 					))}
 				</EduList>
 			</Section>
+
+			<BridgeBannerSection aria-labelledby="services-bridge-title">
+				<BridgeBanner
+					id="services-bridge-title"
+					eyebrow={t('bridge.eyebrow')}
+					title={t('bridge.title')}
+					text={t('bridge.text')}
+					ctaLabel={t('bridge.cta')}
+					href="https://sw-tester.cz"
+				/>
+			</BridgeBannerSection>
 
 			<Section id="podcast">
 				<SectionTitle>{t('nav.podcast')}</SectionTitle>
