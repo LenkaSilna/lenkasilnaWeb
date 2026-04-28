@@ -41,12 +41,15 @@ export const LanguageProvider = ({children}: {children: ReactNode}) => {
 		}
 
 		// On default locale: check saved preference first
-		const saved = localStorage.getItem(
-			STORAGE_KEY
-		) as LocalizationLanguages | null
-		if (saved && saved !== DEFAULT_LOCALE) {
+		const saved = localStorage.getItem(STORAGE_KEY)
+		const validLocales = Object.values(LocalizationLanguages) as string[]
+		if (saved && !validLocales.includes(saved)) {
+			localStorage.removeItem(STORAGE_KEY)
+		} else if (saved && saved !== DEFAULT_LOCALE) {
 			redirectDone.current = true
-			router.replace(router.asPath, router.asPath, {locale: saved})
+			router.replace(router.asPath, router.asPath, {
+				locale: saved as LocalizationLanguages,
+			})
 			return
 		}
 
