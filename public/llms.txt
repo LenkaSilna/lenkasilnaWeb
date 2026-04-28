@@ -1,0 +1,12 @@
+# Lenka Silná — Frontend Engineer
+
+Personal portfolio. Czech-based frontend engineer (Next.js, React, TypeScript).
+
+## What you can find here
+- Project portfolio
+- Contact info
+- About / CV
+
+## Contact
+Email: lenka.barica@gmail.com
+Web: https://www.lenkasilna.cz

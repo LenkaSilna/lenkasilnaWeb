@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
+  <!-- Homepage -->
+  <url>
+    <loc>https://www.lenkasilna.cz/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.lenkasilna.cz/"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://www.lenkasilna.cz/cs/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.lenkasilna.cz/de/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.lenkasilna.cz/es/"/>
+    <lastmod>2026-04-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://www.lenkasilna.cz/cs/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.lenkasilna.cz/"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://www.lenkasilna.cz/cs/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.lenkasilna.cz/de/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.lenkasilna.cz/es/"/>
+    <lastmod>2026-04-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://www.lenkasilna.cz/de/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.lenkasilna.cz/"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://www.lenkasilna.cz/cs/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.lenkasilna.cz/de/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.lenkasilna.cz/es/"/>
+    <lastmod>2026-04-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://www.lenkasilna.cz/es/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.lenkasilna.cz/"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://www.lenkasilna.cz/cs/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.lenkasilna.cz/de/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.lenkasilna.cz/es/"/>
+    <lastmod>2026-04-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- Now page -->
+  <url>
+    <loc>https://www.lenkasilna.cz/now/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.lenkasilna.cz/now/"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://www.lenkasilna.cz/cs/now/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.lenkasilna.cz/de/now/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.lenkasilna.cz/es/now/"/>
+    <lastmod>2026-04-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.lenkasilna.cz/cs/now/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.lenkasilna.cz/now/"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://www.lenkasilna.cz/cs/now/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.lenkasilna.cz/de/now/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.lenkasilna.cz/es/now/"/>
+    <lastmod>2026-04-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.lenkasilna.cz/de/now/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.lenkasilna.cz/now/"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://www.lenkasilna.cz/cs/now/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.lenkasilna.cz/de/now/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.lenkasilna.cz/es/now/"/>
+    <lastmod>2026-04-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.lenkasilna.cz/es/now/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.lenkasilna.cz/now/"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://www.lenkasilna.cz/cs/now/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.lenkasilna.cz/de/now/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.lenkasilna.cz/es/now/"/>
+    <lastmod>2026-04-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Contact page -->
+  <url>
+    <loc>https://www.lenkasilna.cz/contact/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.lenkasilna.cz/contact/"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://www.lenkasilna.cz/cs/contact/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.lenkasilna.cz/de/contact/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.lenkasilna.cz/es/contact/"/>
+    <lastmod>2026-04-28</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://www.lenkasilna.cz/cs/contact/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.lenkasilna.cz/contact/"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://www.lenkasilna.cz/cs/contact/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.lenkasilna.cz/de/contact/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.lenkasilna.cz/es/contact/"/>
+    <lastmod>2026-04-28</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://www.lenkasilna.cz/de/contact/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.lenkasilna.cz/contact/"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://www.lenkasilna.cz/cs/contact/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.lenkasilna.cz/de/contact/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.lenkasilna.cz/es/contact/"/>
+    <lastmod>2026-04-28</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://www.lenkasilna.cz/es/contact/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.lenkasilna.cz/contact/"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://www.lenkasilna.cz/cs/contact/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.lenkasilna.cz/de/contact/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.lenkasilna.cz/es/contact/"/>
+    <lastmod>2026-04-28</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+
+</urlset>
