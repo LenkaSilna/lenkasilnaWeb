@@ -17,6 +17,26 @@ const nextConfig = {
 	compiler: {
 		styledComponents: true,
 	},
+	async headers() {
+		return [
+			{
+				source: '/(.*)',
+				headers: [
+					{
+						key: 'Link',
+						value: [
+							'</llms.txt>; rel="describedby"',
+							'</sitemap.xml>; rel="sitemap"',
+						].join(', '),
+					},
+					{
+						key: 'Vary',
+						value: 'Accept',
+					},
+				],
+			},
+		]
+	},
 }
 
 export default nextConfig
