@@ -41,7 +41,9 @@ export const LanguageProvider = ({children}: {children: ReactNode}) => {
 		}
 
 		// On default locale: check saved preference first
-		const saved = localStorage.getItem(STORAGE_KEY) as LocalizationLanguages | null
+		const saved = localStorage.getItem(
+			STORAGE_KEY
+		) as LocalizationLanguages | null
 		if (saved && saved !== DEFAULT_LOCALE) {
 			redirectDone.current = true
 			router.replace(router.asPath, router.asPath, {locale: saved})
@@ -51,14 +53,18 @@ export const LanguageProvider = ({children}: {children: ReactNode}) => {
 		// No saved preference: try IP-based detection
 		redirectDone.current = true
 		fetch('https://ipapi.co/json/')
-			.then(r => r.json())
+			.then((r) => r.json())
 			.then((data: {country_code?: string}) => {
 				const detected = COUNTRY_TO_LOCALE[data.country_code ?? '']
 				if (detected && detected !== DEFAULT_LOCALE) {
-					router.replace(router.asPath, router.asPath, {locale: detected})
+					router.replace(router.asPath, router.asPath, {
+						locale: detected,
+					})
 				}
 			})
-			.catch(() => {/* stay on default locale */})
+			.catch(() => {
+				/* stay on default locale */
+			})
 	}, [router.isReady, router.locale]) // eslint-disable-line react-hooks/exhaustive-deps
 
 	useEffect(() => {
