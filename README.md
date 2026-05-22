@@ -1,3 +1,4 @@
+
 # lenkasilnaWeb
 
 Personal portfolio built with Next.js (Pages Router), React, and TypeScript.
@@ -17,6 +18,7 @@ Personal portfolio built with Next.js (Pages Router), React, and TypeScript.
 - TypeScript
 - styled-components
 - Form validation
+- Sentry (error monitoring, tracing, session replay)
 
 ## Requirements
 
@@ -53,8 +55,18 @@ Personal portfolio built with Next.js (Pages Router), React, and TypeScript.
 - `src/localization` + `messages/` – translations
 - `src/data/seo.json` – language-specific SEO content
 
+## Environment variables
+
+| Variable | Where | Purpose |
+|---|---|---|
+| `NEXT_PUBLIC_SENTRY_DSN` | `.env.local` | Sentry DSN (client-side, public) |
+| `SENTRY_DSN` | `.env.local` | Sentry DSN (server/edge) |
+| `SENTRY_AUTH_TOKEN` | `.env.sentry-build-plugin` | Source map upload token (gitignored) |
+
 ## Notes
 
 - The app version shown in the badge is taken automatically from `package.json` (`NEXT_PUBLIC_APP_VERSION` is set in `next.config.mjs`).
 - The default language is `en` (after hydration, the saved value is loaded from `localStorage`).
+- Sentry source maps are uploaded automatically on every `next build` (requires `SENTRY_AUTH_TOKEN`).
+- `.env.sentry-build-plugin` is gitignored — set the auth token there locally, or as a CI secret in production.
 - Configuration details for production integrations are intentionally omitted from this public README.

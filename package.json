@@ -1,7 +1,7 @@
 {
 	"name": "lenkasilnaweb",
 	"private": true,
-	"version": "0.0.5",
+	"version": "0.0.6",
 	"type": "module",
 	"scripts": {
 		"dev": "next dev",
@@ -11,6 +11,7 @@
 		"lint:fix": "eslint . --fix"
 	},
 	"dependencies": {
+		"@sentry/nextjs": "^10",
 		"next": "^16.0.0",
 		"react": "^19.0.0",
 		"react-dom": "^19.0.0",
