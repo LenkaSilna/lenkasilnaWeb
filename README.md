@@ -29,16 +29,17 @@ Personal portfolio built with Next.js (Pages Router), React, and TypeScript.
 
 1. Install dependencies:
 
-	```bash
-	pnpm install
-	```
-2. Start the development server:
+ ```bash
+ pnpm install
+ ```
 
-	```bash
-	pnpm dev
-	```
+1. Start the development server:
 
-3. Open `http://localhost:3000`.
+ ```bash
+ pnpm dev
+ ```
+
+1. Open `http://localhost:3000`.
 
 ## Scripts
 
