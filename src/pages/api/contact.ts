@@ -14,8 +14,6 @@ function isRateLimited(ip: string): boolean {
 	return false
 }
 
-const resend = new Resend(process.env.RESEND_API_KEY)
-
 const schema = z.object({
 	name: z.string().max(100).optional(),
 	email: z.string().email(),
@@ -48,8 +46,20 @@ export default async function handler(
 
 	const {name, email, message} = parsed.data
 
-	const fromEmail = process.env.RESEND_FROM_EMAIL ?? 'noreply@lenkasilna.cz'
-	const toEmail = process.env.CONTACT_TO_EMAIL ?? 'lenka@lenkasilna.cz'
+	const apiKey = process.env.RESEND_API_KEY
+	const fromEmail = process.env.RESEND_FROM_EMAIL
+	const toEmail = process.env.CONTACT_TO_EMAIL
+
+	if (!apiKey || !fromEmail || !toEmail) {
+		console.error('Missing env:', {
+			RESEND_API_KEY: Boolean(apiKey),
+			RESEND_FROM_EMAIL: Boolean(fromEmail),
+			CONTACT_TO_EMAIL: Boolean(toEmail),
+		})
+		return res.status(500).json({error: 'Server misconfigured'})
+	}
+
+	const resend = new Resend(apiKey)
 
 	const {error} = await resend.emails.send({
 		from: `Portfolio <${fromEmail}>`,
@@ -60,6 +70,7 @@ export default async function handler(
 	})
 
 	if (error) {
+		console.error('Resend error:', error)
 		return res.status(500).json({error: 'Failed to send email'})
 	}
 
