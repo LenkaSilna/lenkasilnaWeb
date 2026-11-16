@@ -62,11 +62,11 @@ export default async function handler(
 	const resend = new Resend(apiKey)
 
 	const {error} = await resend.emails.send({
-		from: `Portfolio <${fromEmail}>`,
+		from: `lenkasilna.cz <${fromEmail}>`,
 		to: [toEmail],
 		replyTo: email,
-		subject: `[Portfolio] Nová zpráva${name ? ` od ${name}` : ''}`,
-		text: `Nová zpráva z portfolia\n\nOd: ${name ?? 'Anonym'} <${email}>\n\n${message}`,
+		subject: `[lenkasilna.cz] Nová zpráva${name ? ` od ${name}` : ''}`,
+		text: `Nová zpráva z webu lenkasilna.cz\n\nOd: ${name ?? 'Anonym'} <${email}>\n\n${message}`,
 	})
 
 	if (error) {
