@@ -1,4 +1,3 @@
-import {withSentryConfig} from '@sentry/nextjs'
 import {createRequire} from 'module'
 const require = createRequire(import.meta.url)
 const {version} = require('./package.json')
@@ -40,17 +39,4 @@ const nextConfig = {
 	},
 }
 
-export default withSentryConfig(nextConfig, {
-	org: 'lenka-silna',
-	project: 'javascript-nextjs',
-
-	silent: !process.env.CI,
-	widenClientFileUpload: true,
-	tunnelRoute: '/monitoring',
-
-	webpack: {
-		treeshake: {
-			removeDebugLogging: true,
-		},
-	},
-})
+export default nextConfig
